@@ -1,0 +1,29 @@
+BiTree Create(BiTree T)   //create tree
+{
+   char ch;
+   ch=getchar();
+   if(ch=='#')
+   T=NULL;
+   else
+   {
+   if(!(T=(BiTNode *)malloc(sizeof(BiTNode))))
+   printf("Error!");
+   T->data=ch;
+   T->lchild=Create(T->lchild);
+   T->rchild=Create(T->rchild);
+   }
+   return T;
+}
+
+ABC##D##E#F##
+
+This can be easily understood;
+ABC means B is A's lchild,C is B's lchild;
+## means D has no lchild nor rchild;
+D is B's rchild;
+## means D has no lchild nor rchild;
+E is A's rchild;
+#means E has no lchild;
+F is E's rchild;
+## means F has no lchild nor rchild.
+
