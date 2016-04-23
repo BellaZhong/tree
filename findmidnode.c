@@ -8,6 +8,29 @@ struct node{
 };
 
 
+struct node *dellist(struct node *head,int num)
+{
+    struct node *p=head;
+    struct node *q=head;
+    if(head->data==num)
+    {
+	head=head->next;
+	return head;
+    }   
+    else
+    {
+	p=q->next;// point to the next behind head node
+	while(num!=p->data)
+	{
+	    q=q->next;//p is always point to q's next node
+	    p=q->next;
+	}
+	q->next=p->next;		
+    }
+    return head;
+}
+
+
 void searchmid(struct node *head)  
 {  
     //判断空链表、单节点链表  
@@ -99,7 +122,9 @@ int main()
     
     head=newlist();
     show(head);
-    searchmid(head);   
+    searchmid(head);
+    head=dellist(head,1);
+    show(head);   
 }
 
 
