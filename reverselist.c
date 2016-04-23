@@ -9,6 +9,20 @@ struct node{
 };
 
 
+struct node *addnode(struct node *head,struct node *add,int num)
+{
+    struct node *addtemp=head;
+    while(num!=addtemp->data)
+    {
+	addtemp=addtemp->next;
+    }
+    //addtemp->next=add;
+    add->next=addtemp->next;
+    addtemp->next=add;
+    return head;
+}
+
+
 void reverseshow(struct node *head)
 {
     struct node *p=head;
@@ -69,6 +83,9 @@ int main()
 {
     struct node *newlist;
     int i=0;
+    struct node *addpoint;
+    addpoint=(struct node*)malloc(sizeof(struct node));
+    addpoint->data=5;
     newlist=NULL;
     //struct node *newhead;
     //newhead=NULL;
@@ -79,5 +96,7 @@ int main()
     //}
     show(newlist);
     reverseshow(newlist);
+    newlist=addnode(newlist,addpoint,3);
+    show(newlist);
     return 0;
 }
