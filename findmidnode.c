@@ -59,6 +59,8 @@ struct node *newlist()
 {
     int n=0;
     struct node *head, *tail, *lnew;
+    //head=(struct node*)malloc(sizeof(struct node));
+    //tail=(struct node*)malloc(sizeof(struct node));
     head=NULL;
     tail=NULL;
     //lnew=(struct node*)malloc(sizeof(struct node));
@@ -91,8 +93,10 @@ struct node *newlist()
 
 int main()
 {
+    //struct node *head=(struct node*)malloc(sizeof(struct node));
+    //struct node *mid=(struct node*)malloc(sizeof(struct node));
     struct node *head=NULL;
-    struct node *mid=NULL;
+    
     head=newlist();
     show(head);
     searchmid(head);   
